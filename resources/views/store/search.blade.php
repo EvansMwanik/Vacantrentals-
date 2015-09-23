@@ -9,7 +9,7 @@
 
 @stop
 
-@if($rentals->(count))
+@if($rentals->count(0))
         <p>No rental matches your search</p>
 
         @endif
