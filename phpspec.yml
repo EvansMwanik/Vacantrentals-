@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: vacantrentals
+        psr4_prefix: vacantrentals
+        src_path: app
