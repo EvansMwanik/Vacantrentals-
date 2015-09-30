@@ -16,6 +16,7 @@ Route::get('rentals/view','StoreController@show');
 Route::get('store/search','StoreController@search');
 Route::get('store/contact','StoreController@contact');
 Route::post('store/email','StoreController@email');
+Route::post('store/book','StoreController@book');
 //Authentication routes
 Route::get('Auth/login','Auth\AuthController@getLogin');
 Route::post('Auth/login','Auth\AuthController@postLogin');
@@ -49,3 +50,9 @@ Route::post('Admin/rentals/store','RentalsController@store');
 Route::delete('Admin/rentals/delete/{id}','RentalsController@destroy');
 Route::get('Admin/rentals/edit/{id}','RentalsController@edit');
 Route::put('Admin/rentals/update','RentalsController@update');
+
+//bookings Routes
+Route::get('Admin/bookings','BookingsController@index');
+Route::get('Admin/bookings/edit','BookingsController@edit');
+Route::post('Admin/bookings/create','BookingsController@store');
+Route::post('Admin/bookings/cancel','BookingsController@cancel');

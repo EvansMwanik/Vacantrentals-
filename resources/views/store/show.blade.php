@@ -6,19 +6,23 @@
 <div id="rental">
 
 		<h2>Rentals</h2><hr>
-@if($rentals->count())
-        <p>No rental matches your search</p>
 
-        @endif
 		<ul>
 			@foreach($rentals as $rental)
 				<li>
 				{!!$rental->title!!}-
 				{!! Html::image($rental->image, $rental->title, array('class'=>'feature', 'width'=>'220', 'height'=>'128')) !!}
-					
-					{!! Form::close() !!} 
+				{!!$rental->price!!}
+				{!! Form::close() !!} 
                     
-				</li>
+				</li><p>
+                {!! Form::open(array('url'=>'store/book')) !!}
+                {!! Form::hidden('id', $rental->id) !!}
+                <button type="submit" class="cart-btn">
+                    <span class="price">Ksh.{!! $rental->price !!}/Month</span> BOOK NOW
+                </button>
+                {!! Form::close() !!}
+            </p>
 			@endforeach
 		</ul>
 		<br>

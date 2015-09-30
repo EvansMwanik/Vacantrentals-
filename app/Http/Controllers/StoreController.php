@@ -103,8 +103,15 @@ class StoreController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
-    {
-        //
+    public function book(Rental $id) {
+        $rental = Rental::find(Input::get('id'));
+
+        if ($rental) {
+            return View('store.booking')
+            ->with('rental', Rental::find(Input::get('id')));
+        }
+
+        return Redirect::to('/')
+            ->with('message', 'invalid rental id, please try again');
     }
 }

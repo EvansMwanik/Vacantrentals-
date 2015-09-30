@@ -51,6 +51,7 @@
                                                 <li>{!!Html::link('Admin/estates', 'Manage Estates')!!}</li>
                                                 <li>{!!Html::link('Admin/rentaltypes', 'Manage Rentaltypes')!!}</li>
                                                 <li>{!!Html::link('Admin/rentals', 'Manage Rentals')!!}</li>
+                                                <li>{!!Html::link('Admin/bookings', 'Manage Bookings')!!}</li>
                                             @else
                                                 <li>{!!Html::link('rentals/view', 'view Rentals')!!}</li>
                                             @endif

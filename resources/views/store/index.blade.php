@@ -20,14 +20,26 @@
 
 		<u>
 			@foreach($rentals as $rental)
+			
 				<li>
-					{!! $estates!!}
+				{!!($estates)!!}
 					<br>
 					<a href="rentals/view">{!!$rental->title!!}</a>-{!!$rental->image!!}
 					
 					{!! Form::close() !!} 
                     
 				</li>
+				@if(Auth::check())
+				<p>
+                {!! Form::open(array('url'=>'store/book')) !!}
+                {!! Form::hidden('id', $rental->id) !!}
+                <button type="submit" class="cart-btn">
+                    <span class="price">Ksh.{!! $rental->price !!}/Month</span> BOOK NOW
+                </button>
+                {!! Form::close() !!}
+                @endif
+            </p>
+			
 			@endforeach
 		</ul>
 		<br>
