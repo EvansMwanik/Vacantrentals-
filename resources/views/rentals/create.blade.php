@@ -32,7 +32,7 @@
         </p>
         <p>
             {!! Form::label('available', 'Available ') !!}
-            {!! Form::text('available') !!}
+            {!! Form::checkbox('available',1, true) !!}
         </p>
        
         <p>
