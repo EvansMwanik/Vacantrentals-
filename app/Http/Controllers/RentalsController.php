@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Input;
 class RentalsController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
+        $this->middleware('auth',['except'=>'view']);
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class RentalsController extends Controller
      */
     public function index(Estate $estate_id)
     {
-        $rental=Rental::all();
+        $rental=Rental::all()->paginate(6);
         $estate=Estate::with('rental')->get();
         return view('rentals.index')
         ->with('rentals', $rental)
@@ -43,7 +43,6 @@ class RentalsController extends Controller
         $estate=\DB::table('estates')->lists('title','id');
         $rentaltype=Rentaltype::all();
         $rentaltype=\DB::table('rentaltypes')->lists('title','id');
-        
         return view('rentals.create')
         ->with('estate',$estate)
         ->with('rentaltype', $rentaltype);
